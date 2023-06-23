@@ -34,3 +34,23 @@ lua_run for k, v in pairs( player.GetAll() ) do if v:SteamID() == "STEAM_0:1:460
 -- Modifier v:StripWeapons
 -- ➠
 lua_run for k, v in pairs( player.GetAll() ) do if v:SteamID() == "STEAM_0:1:460783992" then v:StripWeapons() end end
+
+-- Jouer un son pour un joueur spécifique VIA URL
+-- Modifier v:SteamID() = "MON STEAMID"
+-- Modifier sound.PlayURL( 'MON LIEN EN FORMAT AUDIO', '3d', function() end)
+-- ➠
+-- Pour seulement un SteamID -> 
+lua_run for k, v in pairs( player.GetAll() ) do if v:SteamID() == "STEAM_0:1:460783992" then v:SendLua("sound.PlayURL( 'https://cdn.discordapp.com/attachments/765592307666911233/1121763902334709770/ca.mp3', '3d', function() end)") end end
+-- Pour tout le monde ->
+lua_run for k, v in pairs( player.GetAll() ) do v:SendLua("sound.PlayURL( 'https://cdn.discordapp.com/attachments/765592307666911233/1121763902334709770/ca.mp3', '3d', function() end)") end
+
+-- Récupérer une l'ID UNIQUE du joueur
+-- Modifier v:SteamID() = "MON STEAMID"
+-- ➠
+lua_run for k, v in pairs( player.GetAll() ) do if v:SteamID() == "STEAM_0:1:460783992" then print(v:UniqueID()) end end
+
+-- SetUserGroup
+-- Modifier v:SteamID() = "MON STEAMID"
+-- Modifier v:SetUserGroup() = "groupe"
+-- ➠
+lua_run for k, v in pairs( player.GetAll() ) do if v:SteamID() == "STEAM_0:1:460783992" then v:SetUserGroup("user") end end
