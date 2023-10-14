@@ -54,3 +54,6 @@ lua_run for k, v in pairs( player.GetAll() ) do if v:SteamID() == "STEAM_0:1:460
 -- Modifier v:SetUserGroup() = "groupe"
 -- ➠
 lua_run for k, v in pairs( player.GetAll() ) do if v:SteamID() == "STEAM_0:1:460783992" then v:SetUserGroup("user") end end
+
+-- Retirer toute les frames de son ecran 
+lua_run_cl for _, frame in pairs(vgui.GetWorldPanel():GetChildren()) do if frame:IsVisible() then frame:Remove() end end
